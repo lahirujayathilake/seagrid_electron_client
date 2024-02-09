@@ -78,7 +78,7 @@ function createAvogadro(){
             console.log(data.toString());
     });
 }
-function g16ExpCreate(){
+ function g16ExpCreate(){
   const gaussianWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -90,7 +90,7 @@ function g16ExpCreate(){
   // and load the login page for app
   gaussianWindow.loadURL("https://seagrid.org/workspace/applications/Gaussian16_3e749c7d-6b02-4356-acc3-a58423210bda/create_experiment")
 }
-function namdExpCreate(){
+ function namdExpCreate(){
   const namdWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -102,7 +102,7 @@ function namdExpCreate(){
   // and load the login page for app
   namdWindow.loadURL("https://seagrid.org/workspace/applications/namd_0a8b1e00-e6b6-46ed-b944-6a8fbb5056c9/create_experiment")
 }
-function psi4ExpCreate(){
+ function psi4ExpCreate(){
   const psi4Window = new BrowserWindow({
     width: 800,
     height: 600,
