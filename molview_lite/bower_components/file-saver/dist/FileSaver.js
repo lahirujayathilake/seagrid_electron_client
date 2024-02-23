@@ -185,4 +185,36 @@
   if (typeof module !== 'undefined') {
     module.exports = saveAs;
   }
+
+  const fs = require('fs');
+  const os = require('os');
+  const path = require('path');
+
+  function save(data, filename) {
+    return new Promise((resolve, reject) => {
+      // Determine the path to the temporary directory
+      const tmpDir = os.tmpdir();
+
+      // Generate the full path for the new file
+      const filePath = path.join(tmpDir, filename);
+
+      // Write the data to the file
+      fs.writeFile(filePath, data, (err) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve(filePath);
+      });
+    });
+  }
+
+  // Assuming _global is defined in your Electron main process context
+  _global.save = save;
+
+  if (typeof module !== 'undefined') {
+    module.exports.save = save;
+  }
+
+
 });

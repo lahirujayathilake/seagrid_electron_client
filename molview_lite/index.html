@@ -54,6 +54,8 @@ Query parameters:
 
 	<!-- Settings, originally injected by PHP -->
 	<script type="text/javascript">
+		import {save} from "./bower_components/file-saver/dist/FileSaver";
+
 		Model.JSmol.hq = true
 		MolView.touch = false
 		MolView.mobile = false
@@ -108,7 +110,7 @@ Query parameters:
 			var gaussstr = "%nproc=24\n%mem=2000MB\n%Chk=neopentane13diol\n#P RB3LYP/cc-pVDZ Pop=(Reg) GFInput GFPrint Iop(6/7=3) Opt Freq\n\nneopentane13diol #P RB3LYP/cc-pVDZ Pop=(Reg) GFInput GFPrint Iop(6/7=3) Opt Freq\n\n0 1\n ";
 			var buffer= gaussstr + tempresult
 			blob = new Blob([buffer],{type:"chemical/x-gaussian-input"});
-			saveAs(blob, document.title + ".gjf");
+			save(blob, document.title + ".gjf");
                         }
                         else 
                         {
@@ -122,7 +124,7 @@ Query parameters:
                           var tmplRun = "set qc_module detci \n thisenergy = optimize('scf', dertype = 0) \n";
                           buffer = buffer + tmplSetngs + tmplRun
                           blob = new Blob([buffer],{type:"text"});
-                          saveAs(blob, document.title + ".dat");
+                          save(blob, document.title + ".dat");
                         }
 			/*var buffer = fs.readFileSync("input_1.gjf");
 			Model.data.gau = buffer.toString();
